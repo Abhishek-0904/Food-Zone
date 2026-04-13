@@ -473,6 +473,16 @@ $total = CustomerPanelController::cartitem();
             backdrop-filter: blur(5px);
             z-index: 10000;
             display: none;
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .navbar-brand .logo-text { font-size: 1.4rem; }
+            .btn-premium { padding: 8px 15px; font-size: 0.85rem; }
+            .live-marquee { font-size: 0.7rem; padding: 4px 0; height: 30px; }
+            nav.navbar { top: 30px !important; }
+            main { padding-top: 100px !important; }
+            #chatbot-bubble { bottom: 85px; left: 15px; width: 55px; height: 55px; font-size: 1.4rem; }
+            #chatbot-window { width: 92%; left: 4%; bottom: 85px; height: 420px; }
+            #scratch-container { width: 90%; }
         }
     </style>
     

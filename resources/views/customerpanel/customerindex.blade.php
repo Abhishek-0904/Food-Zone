@@ -173,6 +173,14 @@ transition: transform 0.8s ease;
         display: inline-block;
         margin-bottom: 15px;
     }
+
+    @media (max-width: 768px) {
+        .hero-title { font-size: 2.8rem !important; margin-top: 50px; }
+        .section-header h2 { font-size: 2.2rem !important; }
+        .display-3 { font-size: 2.5rem !important; }
+        .hero-swiper { height: 500px; border-radius: 30px; }
+        .slide-content { padding-left: 20px; padding-right: 20px; text-align: center; justify-content: center; }
+    }
 </style>
 
 <div class="container animate__animated animate__fadeIn">
