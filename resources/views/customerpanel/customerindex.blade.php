@@ -175,11 +175,12 @@ transition: transform 0.8s ease;
     }
 
     @media (max-width: 768px) {
-        .hero-title { font-size: 2.8rem !important; margin-top: 50px; }
-        .section-header h2 { font-size: 2.2rem !important; }
-        .display-3 { font-size: 2.5rem !important; }
-        .hero-swiper { height: 500px; border-radius: 30px; }
-        .slide-content { padding-left: 20px; padding-right: 20px; text-align: center; justify-content: center; }
+        .hero-title { font-size: 2.2rem !important; margin-top: 20px; word-break: break-word; line-height: 1.2; }
+        .section-header h2 { font-size: 1.8rem !important; }
+        .display-3 { font-size: 2.2rem !important; }
+        .hero-swiper { height: 450px; border-radius: 25px; margin-top: 10px; }
+        .slide-content { padding: 0 15px; text-align: center; justify-content: center; align-items: center; }
+        .hero-title br { display: none; } /* Remove line breaks on mobile */
     }
 </style>
 

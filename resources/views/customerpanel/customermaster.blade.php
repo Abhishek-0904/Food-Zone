@@ -53,6 +53,7 @@ $total = CustomerPanelController::cartitem();
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <style>
+        html, body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; }
         :root {
             --primary-color: #ff4757;
             --secondary-color: #2f3542;
@@ -204,20 +205,19 @@ $total = CustomerPanelController::cartitem();
         }
 
         .mobile-nav-item {
-            text-align: center;
             flex: 1;
-            color: #a4b0be;
+            text-align: center;
+            font-size: 0.65rem;
+            color: #64748b;
             text-decoration: none;
-            font-size: 0.7rem;
-            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
             transition: all 0.3s ease;
+            min-width: 0;
         }
-
-        .mobile-nav-item i {
-            display: block;
-            font-size: 1.4rem;
-            margin-bottom: 4px;
-        }
+        .mobile-nav-item i { font-size: 1.1rem; }
 
         .mobile-nav-item.active {
             color: var(--primary-color);
@@ -473,16 +473,36 @@ $total = CustomerPanelController::cartitem();
             backdrop-filter: blur(5px);
             z-index: 10000;
             display: none;
+        /* Global Reset for Mobile */
+        * { box-sizing: border-box; }
+        
         /* Mobile Optimization */
         @media (max-width: 768px) {
-            .navbar-brand .logo-text { font-size: 1.4rem; }
-            .btn-premium { padding: 8px 15px; font-size: 0.85rem; }
-            .live-marquee { font-size: 0.7rem; padding: 4px 0; height: 30px; }
-            nav.navbar { top: 30px !important; }
-            main { padding-top: 100px !important; }
-            #chatbot-bubble { bottom: 85px; left: 15px; width: 55px; height: 55px; font-size: 1.4rem; }
-            #chatbot-window { width: 92%; left: 4%; bottom: 85px; height: 420px; }
-            #scratch-container { width: 90%; }
+            .container { padding-left: 15px; padding-right: 15px; overflow: hidden; }
+            .navbar-brand .logo-text { font-size: 1.3rem; }
+            .btn-premium { width: 100%; margin-bottom: 10px; text-align: center; justify-content: center; }
+            .live-marquee { font-size: 0.7rem; padding: 4px 0; height: 35px; }
+            nav.navbar { top: 35px !important; }
+            main { padding-top: 105px !important; }
+            
+            /* Chatbot Mobile Fix */
+            #chatbot-bubble { bottom: 85px; left: 15px; width: 50px; height: 50px; font-size: 1.3rem; }
+            #chatbot-window { 
+                width: calc(100% - 30px); 
+                left: 15px; 
+                bottom: 85px; 
+                height: 400px; 
+                max-width: none;
+            }
+            .chat-msg { max-width: 90%; }
+
+            /* Grid Fixes */
+            .row { margin-left: -5px; margin-right: -5px; }
+            .col-12, .col-6, .col-md-6, .col-lg-4 { padding-left: 5px; padding-right: 5px; }
+            
+            /* Button & Flex Wrap */
+            .d-flex.gap-3 { flex-wrap: wrap !important; }
+            .d-flex.gap-3 .btn { flex: 1 1 100%; }
         }
     </style>
     
@@ -583,6 +603,10 @@ $total = CustomerPanelController::cartitem();
         <a href="{{ url('/profile') }}" class="mobile-nav-item {{ Request::is('profile') ? 'active' : '' }}">
             <i class="fa-solid fa-user"></i>
             Account
+        </a>
+        <a href="{{ url('/customerlogout') }}" class="mobile-nav-item text-danger">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
         </a>
     </div>
 
